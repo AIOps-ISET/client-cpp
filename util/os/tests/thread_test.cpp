@@ -1,4 +1,5 @@
 #include "thread.hpp"
+
 #include <gtest/gtest.h>
 
 thread::Lock mutex{};

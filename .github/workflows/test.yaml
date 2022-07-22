@@ -7,18 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install cmake
+      - name: Install dependency
         run: |
           sudo apt-get update
           sudo apt-get install cmake
           sudo apt-get install doxygen
+          sudo apt-get install graphviz graphviz-doc
       - name: Configure
         run: |
           mkdir build && cd build
           cmake -DCMAKE_BUILD_TYPE=Release ..
       - name: Build the docx
         run: |
+          cd build
           cmake --build . --target DOXYGEN
       - name: Build the source code and make tests
         run: |
+          cd build
           cmake --build . && ctest
