@@ -8,6 +8,9 @@
 
 #include <pthread.h>
 
+#ifndef _UTIL_OS_THREAD_HPP_
+#define _UTIL_OS_THREAD_HPP_
+
 namespace thread {
 
 /**
@@ -114,4 +117,6 @@ public:
   void boradcast();
 };
 
-} // namespace thread
+}  // namespace thread
+
+#endif  // _UTIL_OS_THREAD_HPP_
