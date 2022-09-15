@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        # Update submodule
+        with:
+          submodules: recursive
       - name: Install dependency
         run: |
           sudo apt-get update
