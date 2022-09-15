@@ -25,11 +25,12 @@ FetchContent_MakeAvailable(googletest)
 
 # See https://cmake.org/cmake/help/latest/module/FindDoxygen.html
 find_package(Doxygen
-             REQUIRED dot
-             OPTIONAL_COMPONENTS mscgen dia)
+  REQUIRED dot
+  OPTIONAL_COMPONENTS mscgen dia)
 
-if (DOXYGEN_FOUND)
+if(DOXYGEN_FOUND)
   set(DOXYGEN_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/docs)
+
   # Here we must make Doxygen do not generate
   # the docs for dependency
   # See https://cmake.org/cmake/help/latest/module/FindDoxygen.html#variable:DOXYGEN_EXCLUDE_PATTERNS
@@ -59,4 +60,15 @@ else()
   message("Doxygen need to be installed to generate the doxygen documentation")
 endif()
 
+# We need to add the dependency directory for spdlog
+add_subdirectory(./deps/spdlog)
+
+# See https://github.com/gabime/spdlog/blob/v1.x/example/CMakeLists.txt
+if(NOT TARGET spdlog)
+  find_package(spdlog REQUIRED)
+endif()
+
+include_directories(./include/)
+
 add_subdirectory(./util)
+add_subdirectory(./sidecar)
