@@ -1,7 +1,6 @@
-# Client-cpp
+# Istio-cpp
 
-Client-cpp is aimed at interact with k8s and provides the basic
-functionality which client-go has provided.
+Istio-cpp is aimed at achieving the smallest functionality of istio.
 
 ## Development Setup
 
