@@ -1,0 +1,2 @@
+add_library(sidecar_injector_webhook STATIC sidecar_handler.cpp sidecar_handler.hpp)
+target_link_libraries(sidecar_injector_webhook PRIVATE spdlog::spdlog)
