@@ -1,0 +1,1 @@
+add_library(sidecar_injector_server STATIC simple_http_server.cpp)
